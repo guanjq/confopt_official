@@ -1,0 +1,82 @@
+data:
+  dataset_name: qm9
+  train_dataset: data/qm9_property/qm9_train
+  val_dataset: data/qm9_property/qm9_valid
+  test_dataset: data/qm9_property/qm9_test
+  aux_edge_order: 10
+  edge_transform_mode: full_edge  # [aux_edge, full_edge, cutoff]
+  cutoff: 10
+  cutoff_pos: rdkit_pos
+  heavy_only: False
+  processed_tag: dgl_processed
+  rdkit_pos_mode: random
+  dset_mode: relax_lowest
+  lowest_thres: 0.5
+
+
+model:
+  model_type: ours_o2
+
+train:
+  seed: 2020
+  noise_std: 0.
+  noise_type: const
+  gt_aug_ratio: 0.05
+  propose_net_type: rdkit
+  batch_size: 64
+  n_acc_batch: 1
+  num_workers: 4
+  max_iters: 1000000
+  val_freq: 1000
+  train_report_iter: 100
+  patience: 20
+  grad_norm: 8.
+
+  opt_type: adam
+  lr: 1.e-3
+  weight_decay: 0
+  beta1: 0.95
+  beta2: 0.999
+
+  sched_type: plateau
+  sched_factor: 0.5
+  sched_patience: 8
+  min_lr: 1.e-5
+
+
+uni_transformer_o2:
+  num_blocks: 1
+  num_layers: 10
+  hidden_dim: 240
+  n_heads: 20
+  num_r_gaussian: 50
+  num_node_types: 8
+  act_fn: relu
+  norm: True
+  cutoff_mode: radius  # [radius, none]
+  ew_net_type: r  # [r, m, global, none]
+  r_feat_mode: sparse  # [basic, sparse]
+  energy_h_mode: basic
+  num_x2h: 1
+  num_h2x: 1
+  r_max: 10.
+  x2h_out_fc: False
+  sync_twoup: False
+
+
+# baselines
+equi_se3trans:
+  num_layers: 9
+  hidden_dim: 64
+  num_channels: 64
+  num_degrees: 2
+  num_nlayers: 1
+  div: 4
+  n_heads: 8
+
+egnn:
+  num_layers: 9
+  hidden_dim: 256
+  num_r_gaussian: 50
+  act_fn: relu
+  norm: False

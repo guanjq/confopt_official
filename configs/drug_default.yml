@@ -1,0 +1,103 @@
+data:
+  dataset_name: drug
+  train_dataset: data/drug/drug_train.pkl
+  val_dataset: data/drug/drug_val.pkl
+  test_dataset: data/drug/drug_test.pkl
+  aux_edge_order: 10
+  edge_transform_mode: full_edge  # [aux_edge, full_edge, cutoff]
+  cutoff: 10
+  cutoff_pos: rdkit_pos
+  heavy_only: True
+  processed_tag: dgl_processed
+  rdkit_pos_mode: random
+  dset_mode: relax_lowest
+  lowest_thres: 0.5
+
+
+model:
+  model_type: ours_o2
+
+
+train:
+  seed: 2020
+  noise_std: 0.
+  noise_type: const
+  gt_aug_ratio: 0.05
+  propose_net_type: rdkit
+  batch_size: 32
+  n_acc_batch: 1
+  num_workers: 4
+  max_iters: 1000000
+  val_freq: 2000
+  train_report_iter: 200
+  patience: 20
+  grad_norm: 8.
+
+  opt_type: adam
+  lr: 1.e-3
+  weight_decay: 0
+  beta1: 0.95
+  beta2: 0.999
+
+  sched_type: plateau
+  sched_factor: 0.5
+  sched_patience: 8
+  min_lr: 1.e-5
+
+
+ours_o2:
+  num_blocks: 3
+  num_layers: 3
+  hidden_dim: 256
+  n_heads: 16
+  num_r_gaussian: 50
+  num_node_types: 8
+  act_fn: relu
+  norm: True
+  cutoff_mode: radius  # [radius, none]
+  ew_net_type: global  # [r, m, none]
+  r_feat_mode: sparse  # [basic, sparse]
+  energy_h_mode: basic
+  num_x2h: 1
+  num_h2x: 1
+  r_max: 10.
+  x2h_out_fc: False
+  sync_twoup: False
+
+
+ours_o3:
+  num_blocks: 3
+  num_layers: 3
+  hidden_dim: 256
+  n_heads: 16
+  num_r_gaussian: 50
+  num_node_types: 8
+  act_fn: relu
+  norm: True
+  cutoff_mode: radius
+  ew_net_type: global
+  r_feat_mode: sparse
+  energy_h_mode: basic
+  num_x2h: 1
+  num_h2x: 1
+  r_max: 10.
+  x2h_out_fc: False
+  sync_twoup: False
+
+
+# baselines
+equi_se3trans:
+  num_layers: 9
+  hidden_dim: 64
+  num_channels: 64
+  num_degrees: 2
+  num_nlayers: 1
+  div: 4
+  n_heads: 8
+
+egnn:
+  num_layers: 9
+  hidden_dim: 256
+  num_r_gaussian: 50
+  act_fn: relu
+  norm: False

@@ -1,0 +1,92 @@
+data:
+  dataset_name: qm9
+  dataset_path: data/qm9_property
+  split_file: data/qm9_property/split.npz
+  target_name: homo
+  model_pos_path:
+  aux_edge_order: 10
+  edge_transform_mode: full_edge  # [aux_edge, full_edge, cutoff]
+  cutoff: 10
+  cutoff_pos: pos
+  heavy_only: False
+  processed_tag: dgl_processed
+
+
+model:
+  model_type: ours_o2  # ['schnet', 'mpnn', 'egnn', 'ours_o2']
+
+
+train:
+  seed: 2020
+  pos_type: gt  # ['gt', 'random', 'rdkit', 'ours']
+  pred_loss_type: mae  # [mse, mae]
+  lambda_pred_loss: 10.
+  loss_type: basic
+
+  noise_std: 0.
+  noise_type: const
+  gt_aug_ratio: 0.05
+
+  batch_size: 96
+  n_acc_batch: 1
+  num_workers: 4
+  num_epochs: 1000
+  train_report_iter: 500
+
+  patience: -1
+  grad_norm: -1.
+
+  opt_type: adam
+  lr: 5.e-4
+  weight_decay: 5.e-16
+
+  sched_type: cos  # [plateau, cos]
+  sched_factor: 0.5
+  sched_patience: 20
+  min_lr: 1.e-6
+
+
+ours_o2:
+  num_layers: 7
+  node_dim: 15
+  edge_dim: 0
+  hidden_dim: 128
+  n_heads: 8
+  num_r_gaussian: 1
+  num_node_types: 5
+  max_charge: 9
+  act_fn: swish
+  r_max: 10.
+  x2h_out_fc: True
+  sync_twoup: False
+
+  norm: False
+  update_x: False
+  cutoff_mode: radius  # [radius, none]
+  ew_net_type: m  # [r, m, none]
+  r_feat_mode: origin  # [basic, sparse]
+  energy_h_mode: basic
+
+
+# baselines
+schnet:
+  hidden_dim: 128
+  num_interactions: 7
+  num_gaussians: 50
+  cutoff: 10.0
+
+mpnn:
+  hidden_dim: 128
+  mp_iter: 3
+  set2set_iter: 4
+
+egnn:
+  num_layers: 7
+  node_dim: 15
+  edge_dim: 0
+  hidden_dim: 128
+  num_r_gaussian: 1
+  max_charge: 9
+  act_fn: swish
+  norm: False
+  update_x: False
