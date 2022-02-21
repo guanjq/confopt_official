@@ -1,6 +1,14 @@
 # Neural Energy Minimization for Molecular Conformation Optimization
 
-This repository is the official implementation of Neural Energy Minimization for Molecular Conformation Optimization.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/guanjq/confopt_official/blob/main/LICENSE)
+
+
+This repository is the official implementation of Neural Energy Minimization for Molecular Conformation Optimization (ICLR 2022).
+[[PDF]](https://openreview.net/pdf?id=7QfLW-XZTl) 
+
+<p align="center">
+  <img src="assets/overview.png" /> 
+</p>
 
 ## Installation
 
