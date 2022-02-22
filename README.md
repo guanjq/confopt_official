@@ -45,7 +45,7 @@ You may need to install [pytorch](https://pytorch.org/),
 The processed data and the pre-trained models can be found in this [folder](https://www.dropbox.com/sh/zh6eyp3z0ryjgxj/AAC1Tx-id7o07eO-Z6Ce4k6ya?dl=0). You can also download them via the following command:
 
 ```bash
-# for dataset (8.37 GB)
+# for dataset (10.79 GB)
 wget -O data.zip 'https://www.dropbox.com/sh/bcidyj2mbgy5dp2/AAB_lXSjadWI1wUk6WZgLEBGa?dl=1' 
 unzip data.zip -d data
 
