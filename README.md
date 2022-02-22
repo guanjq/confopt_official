@@ -1,10 +1,9 @@
-# Neural Energy Minimization for Molecular Conformation Optimization
+# Energy-Inspired Molecular Conformation Optimization
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/guanjq/confopt_official/blob/main/LICENSE)
 
 
-This repository is the official implementation of Neural Energy Minimization for Molecular Conformation Optimization (ICLR 2022).
-[[PDF]](https://openreview.net/pdf?id=7QfLW-XZTl) 
+This repository is the official implementation of Energy-Inspired Molecular Conformation Optimization (ICLR 2022). [[PDF]](https://openreview.net/pdf?id=7QfLW-XZTl) 
 
 <p align="center">
   <img src="assets/overview.png" /> 
@@ -151,10 +150,10 @@ The conformation generation performance of our models on the GEOM-QM9 and GEOM-D
 
 ## Citation
 ```
-@inproceedings{guan2021neural,
-  title={Neural Energy Minimization for Molecular Conformation Optimization},
-  author={Guan, Jiaqi and Qian, Wesley Wei and Ma, Wei-Ying and Ma, Jianzhu and Peng, Jian and others},
+@inproceedings{guan2022neural,
+  title={Energy-Inspired Molecular Conformation Optimization},
+  author={Guan, Jiaqi and Qian, Wesley Wei and Liu, Qiang and Ma, Wei-Ying and Ma, Jianzhu and Peng, Jian},
   booktitle={International Conference on Learning Representations},
-  year={2021}
+  year={2022}
 }
 ```
