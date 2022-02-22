@@ -150,7 +150,7 @@ The conformation generation performance of our models on the GEOM-QM9 and GEOM-D
 
 ## Citation
 ```
-@inproceedings{guan2022neural,
+@inproceedings{guan2022energy,
   title={Energy-Inspired Molecular Conformation Optimization},
   author={Guan, Jiaqi and Qian, Wesley Wei and Liu, Qiang and Ma, Wei-Ying and Ma, Jianzhu and Peng, Jian},
   booktitle={International Conference on Learning Representations},
