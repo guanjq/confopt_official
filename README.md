@@ -49,10 +49,14 @@ The processed data and the pre-trained models can be found in this [folder](http
 wget -O data.zip 'https://www.dropbox.com/sh/bcidyj2mbgy5dp2/AAB_lXSjadWI1wUk6WZgLEBGa?dl=1' 
 unzip data.zip -d data
 
-# for pre-trained models (165 MB)
+# for pre-trained models (1.49 GB)
 wget -O pretrained_models.zip 'https://www.dropbox.com/sh/cq6ho0imyynkfpg/AACq0GW_auRdLXAIQicnG56wa?dl=1' 
 unzip pretrained_models.zip -d pretrained_models
 ```
+
+If you meet difficulties in downloading the data / pretrained models, please try this 
+[Google Drive](https://drive.google.com/drive/folders/11MxihCbLvtIbfQrrxyWaELFNJYxxeB_j?usp=sharing) link.
+
 
 ## Training
 ### Conformation Optimization
